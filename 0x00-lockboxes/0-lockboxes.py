@@ -24,12 +24,16 @@ def canUnlockAll(boxes: List[List[int]]) -> bool:
 
     for box_num, box in enumerate(boxes):
         for key in box:
-            key_dict[key] = box_num
+            if key not in key_dict.keys():
+                key_dict[key] = box_num
 
     for i in range(1, len(boxes)):
-        if key_dict[i] <= i:
+        print(i)
+        if key_dict[i] >= i:
             sig = 1
             break
+
+    print(key_dict)
 
     if sig == 1:
         return False
