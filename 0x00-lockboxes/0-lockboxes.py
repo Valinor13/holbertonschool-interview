@@ -4,13 +4,10 @@
             key_dict: dict - stores bool determination of key availability """
 
 
-from typing import List
+key_dict = {}
 
 
-key_dict: dict = {}
-
-
-def key_path(key: int, boxes: List[List[int]]):
+def key_path(key, boxes):
     """ Key Path: Recursively follows the path of each key in box 0
             Params:
                 key: int - the key path being traced
@@ -27,7 +24,7 @@ def key_path(key: int, boxes: List[List[int]]):
             key_path(new_key, boxes)
 
 
-def canUnlockAll(boxes: List[List[int]]) -> bool:
+def canUnlockAll(boxes):
     """ Can Unlock All: Checks to see if all boxes can be unlocked
             Params:
                 boxes: List[List[int]] - List of lists containing ints
