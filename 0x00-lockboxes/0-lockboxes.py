@@ -32,9 +32,6 @@ def canUnlockAll(boxes):
             Return:
                 Boolean indicating success of attempt to open all boxes """
 
-    if not boxes:
-        return False
-
     for i in range(0, len(boxes)):
         key_dict[i] = False
 
