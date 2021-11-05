@@ -6,6 +6,16 @@
 from typing import List
 
 
+key_dict = {}
+
+
+def key_path(key: int, boxes: List[List[int]]):
+    if key_dict[key] is False:
+        key_dict[key] = True
+        for new_key in boxes[key]:
+            key_path(new_key, boxes)
+
+
 def canUnlockAll(boxes: List[List[int]]) -> bool:
 
     """ Can Unlock All: Checks to see if all boxes can be unlocked
@@ -20,20 +30,17 @@ def canUnlockAll(boxes: List[List[int]]) -> bool:
             Return:
                 Boolean indicating success of attempt to open all boxes """
 
-    key_dict = {}
-    sig = 0
+    for i in range(0, len(boxes)):
+        key_dict[i] = False
 
-    for box_num, box in enumerate(boxes):
-        for key in box:
-            if key not in key_dict.keys():
-                key_dict[key] = box_num
+    for key in boxes[0]:
+        key_path(key, boxes)
 
-    for i in range(1, len(boxes)):
-        if key_dict[i] >= i:
-            sig = 1
-            break
+    if 0 in key_dict.keys():
+        del key_dict[0]
 
-    if sig == 1:
-        return False
+    for value in key_dict.values():
+        if value is False:
+            return False
 
     return True
