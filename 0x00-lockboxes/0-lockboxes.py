@@ -6,14 +6,14 @@ from typing import List
 
 
 def canUnlockAll(boxes: List[List[int]]) -> bool:
-    
+
     """ Can Unlock All: Checks to see if all boxes can be unlocked
             Params:
                 boxes: List[List[int]] - List of lists containing ints
                                         representing keys that open more boxes
             Variables:
                 key_dict: dict - stores keys with the boxes they are found in
-                sig: int - signals if a box is accessed before its key 
+                sig: int - signals if a box is accessed before its key
                 box_num: int - tracks box number to store with keys in dict
                 box: List[int] - each list stored in boxes
             Return:
