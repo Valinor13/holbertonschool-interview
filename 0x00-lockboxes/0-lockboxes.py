@@ -20,8 +20,9 @@ def key_path(key, boxes):
 
     if key in key_dict.keys() and key_dict[key] is False:
         key_dict[key] = True
-        for new_key in boxes[key]:
-            key_path(new_key, boxes)
+        if boxes[key]:
+            for new_key in boxes[key]:
+                key_path(new_key, boxes)
 
 
 def canUnlockAll(boxes):
