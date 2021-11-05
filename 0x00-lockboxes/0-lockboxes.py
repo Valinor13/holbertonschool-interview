@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-
-""" This module contains a solution to the lockboxes problem """
+""" This module contains a solution to the lockboxes problem
+        Global Variables:
+            key_dict: dict - stores bool determination of key availability """
 
 
 from typing import List
@@ -10,6 +11,16 @@ key_dict = {}
 
 
 def key_path(key: int, boxes: List[List[int]]):
+    """ Key Path: Recursively follows the path of each key in box 0
+            Params:
+                key: int - the key path being traced
+                boxes: List[List[int]] - List of lists containing ints
+                                        representing keys that open more boxes
+            Variables:
+                new_key: int - the next key in the path to trace
+            Return:
+                Updates key_dict if necessary and returns void """
+
     if key_dict[key] is False:
         key_dict[key] = True
         for new_key in boxes[key]:
@@ -17,16 +28,10 @@ def key_path(key: int, boxes: List[List[int]]):
 
 
 def canUnlockAll(boxes: List[List[int]]) -> bool:
-
     """ Can Unlock All: Checks to see if all boxes can be unlocked
             Params:
                 boxes: List[List[int]] - List of lists containing ints
                                         representing keys that open more boxes
-            Variables:
-                key_dict: dict - stores keys with the boxes they are found in
-                sig: int - signals if a box is accessed before its key
-                box_num: int - tracks box number to store with keys in dict
-                box: List[int] - each list stored in boxes
             Return:
                 Boolean indicating success of attempt to open all boxes """
 
