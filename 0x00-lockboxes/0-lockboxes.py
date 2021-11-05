@@ -16,7 +16,7 @@ def canUnlockAll(boxes: List[List[int]]) -> bool:
             key_dict[key] = box_num
 
     for i in range(1, len(boxes)):
-        if key_dict[i] >= i:
+        if key_dict[i] <= i:
             sig = 1
             break
 
