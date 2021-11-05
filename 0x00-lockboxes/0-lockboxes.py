@@ -18,7 +18,7 @@ def key_path(key, boxes):
             Return:
                 Updates key_dict if necessary and returns void """
 
-    if key_dict[key] is False:
+    if key in key_dict.keys() and key_dict[key] is False:
         key_dict[key] = True
         for new_key in boxes[key]:
             key_path(new_key, boxes)
