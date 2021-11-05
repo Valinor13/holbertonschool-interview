@@ -19,8 +19,8 @@ def canUnlockAll(boxes: List[List[int]]) -> bool:
             Return:
                 Boolean indicating success of attempt to open all boxes """
 
-    key_dict: dict = {}
-    sig: int = 0
+    key_dict = {}
+    sig = 0
 
     for box_num, box in enumerate(boxes):
         for key in box:
