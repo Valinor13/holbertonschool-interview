@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """ This module contains a solution to the lockboxes problem """
 
 
