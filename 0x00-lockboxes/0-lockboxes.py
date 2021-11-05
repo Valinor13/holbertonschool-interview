@@ -41,8 +41,7 @@ def canUnlockAll(boxes: List[List[int]]) -> bool:
     for key in boxes[0]:
         key_path(key, boxes)
 
-    if 0 in key_dict.keys():
-        del key_dict[0]
+    del key_dict[0]
 
     for value in key_dict.values():
         if value is False:
