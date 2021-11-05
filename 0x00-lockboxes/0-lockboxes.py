@@ -7,7 +7,7 @@
 from typing import List
 
 
-key_dict = {}
+key_dict: dict = {}
 
 
 def key_path(key: int, boxes: List[List[int]]):
