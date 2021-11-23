@@ -2,7 +2,7 @@
 """ Minimum Operations Module """
 
 
-def minoperations(n: int) -> int:
+def minOperations(n: int) -> int:
     """ Finds and returns minimum number of operations required """
 
     if not n or n <= 1:
