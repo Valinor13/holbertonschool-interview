@@ -12,7 +12,8 @@ def minOperations(n: int) -> int:
 
     while loop_count < n:
         if n % loop_count == 0:
-            loop_count += loop_count
+            loop_count += loop_count - 1
             op_count += 1
         op_count += 1
+        loop_count += 1
     return op_count
