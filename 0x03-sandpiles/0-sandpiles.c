@@ -7,19 +7,19 @@
  */
 static void print_pile(int grid[3][3])
 {
-    int i, j;
+	int i, j;
 
 	printf("=\n");
-    for (i = 0; i < 3; i++)
-    {
-        for (j = 0; j < 3; j++)
-        {
-            if (j)
-                printf(" ");
-            printf("%d", grid[i][j]);
-        }
-        printf("\n");
-    }
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (j)
+				printf(" ");
+			printf("%d", grid[i][j]);
+		}
+		printf("\n");
+	}
 }
 
 /**
@@ -79,7 +79,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 		else
 		{
 			sig = 0;
-			printf("%d", topplenum);
+			printf("%d\n", topplenum);
 		}
 	}
 }
