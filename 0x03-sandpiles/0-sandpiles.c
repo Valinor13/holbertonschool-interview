@@ -1,5 +1,8 @@
 #include "sandpiles.h"
 
+int NUMCAP = 3;
+int LINECAP = 3;
+
 /**
  * print_pile - Print 3x3 grid
  * @grid: 3x3 grid
