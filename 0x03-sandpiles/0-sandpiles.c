@@ -72,6 +72,37 @@ void grab_topplenum(int one[3][3], int *sig, int *tpn)
 }
 
 /**
+ * topple_sands - topple sand cells equal to topple number
+ * @sandpile: the grid of sand cells
+ * @tpn: the topplenumber pointer
+ * Return: returns void
+ */
+void topple_sands(int sandpile[3][3], int *tpn)
+{
+	int i, j;
+	int NUMCAP = 3, LINECAP = 3;
+
+	for (i = 0; i < LINECAP; i++)
+	{
+		for (j = 0; j < LINECAP; j++)
+		{
+			if (sandpile[i][j] == *tpn)
+			{
+				sandpile[i][j] -= 4;
+				if (i > 0)
+					sandpile[i - 1][j] += 1;
+				if (i < 2)
+					sandpile[i + 1][j] += 1;
+				if (j > 0)
+					sandpile[i][j - 1] += 1;
+				if (j < 2)
+					sandpile[i][j + 1] += 1;
+			}
+		}
+	}
+}
+
+/**
  * sandpiles_sum - totals the sum of the sandpiles cell limit is 3
  * @grid1: first sandpile, in a matrix format
  * @grid2: second sandpile, in a matrix format
@@ -92,13 +123,11 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 		if (sig == 2)
 		{
 			print_pile(grid1);
-			printf("%d\n", topplenum);
-			sig = 0;
+			topple_sands(grid1, tpn);
 		}
 		else
 		{
 			sig = 0;
-			printf("%d\n", topplenum);
 		}
 	}
 }
