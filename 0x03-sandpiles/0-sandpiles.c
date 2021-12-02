@@ -77,11 +77,11 @@ void grab_topplenum(int one[3][3], int *sig, int *tpn)
  */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-	int sig = 1;
-	int topplenum = 0, *tpn, *sigp;
+	int topplenum = 0, sig = 1;
+	int *tpn, *sigp;
 
-	tpn = topplenum;
-	sigp = sig;
+	tpn = &topplenum;
+	sigp = &sig;
 	combine_piles(grid1, grid2);
 	while (sig != 0)
 	{
