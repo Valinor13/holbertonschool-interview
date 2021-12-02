@@ -44,49 +44,27 @@ void combine_piles(int one[3][3], int two[3][3])
 }
 
 /**
- * grab_topplenum - gets the topplenum for the piles
- * @one: the sandpile
- * @sig: the signal pointer for the topple loop
- * @tpn: the topple number in pointer
- * Return: returns void
- */
-void grab_topplenum(int one[3][3], int *sig, int *tpn)
-{
-	int i, j;
-	int NUMCAP = 3, LINECAP = 3;
-
-	for (i = 0; i < LINECAP; i++)
-	{
-		for (j = 0; j < LINECAP; j++)
-		{
-			if (one[i][j] > NUMCAP)
-			{
-				*tpn = one[i][j];
-				*sig = 2;
-				break;
-			}
-		}
-		if (*sig == 2)
-			break;
-	}
-}
-
-/**
  * topple_sands - topple sand cells equal to topple number
  * @sandpile: the grid of sand cells
  * @tpn: the topplenumber pointer
  * Return: returns void
  */
-void topple_sands(int sandpile[3][3], int *tpn)
+void topple_sands(int sandpile[3][3], int burnpile[3][3])
 {
-	int i, j;
-	int LINECAP = 3;
+	int i, j, LINECAP = 3;
 
 	for (i = 0; i < LINECAP; i++)
 	{
 		for (j = 0; j < LINECAP; j++)
 		{
-			if (sandpile[i][j] == *tpn)
+			burnpile[i][j] = sandpile[i][j];
+		}
+	}
+	for (i = 0; i < LINECAP; i++)
+	{
+		for (j = 0; j < LINECAP; j++)
+		{
+			if ((sandpile[i][j] > 3) && (burnpile[i][j] > 3))
 			{
 				sandpile[i][j] -= 4;
 				if (i > 0)
@@ -110,24 +88,20 @@ void topple_sands(int sandpile[3][3], int *tpn)
  */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-	int topplenum = 0, sig = 1;
-	int *tpn, *sigp;
+	int sig = 1;
+	int *sigp;
 
-	tpn = &topplenum;
 	sigp = &sig;
 	combine_piles(grid1, grid2);
 	while (sig != 0)
 	{
 		sig = 1;
-		grab_topplenum(grid1, sigp, tpn);
 		if (sig == 2)
 		{
 			print_pile(grid1);
-			topple_sands(grid1, tpn);
+			topple_sands(grid1, grid2);
 		}
 		else
-		{
 			sig = 0;
-		}
 	}
 }
