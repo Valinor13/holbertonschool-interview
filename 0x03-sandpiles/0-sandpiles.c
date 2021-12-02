@@ -71,7 +71,7 @@ void check_oil(int one[3][3], int *sig)
 /**
  * topple_sands - topple sand cells equal to topple number
  * @sandpile: the grid of sand cells
- * @tpn: the topplenumber pointer
+ * @burnpile: a static copy of sandpile pre-topple
  * Return: returns void
  */
 void topple_sands(int sandpile[3][3], int burnpile[3][3])
