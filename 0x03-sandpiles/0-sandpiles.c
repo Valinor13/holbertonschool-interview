@@ -8,12 +8,40 @@
  */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-	int sumnum, i, j;
+	int NUMCAP = 3, LINECAP = 3, sig = 1;
+	int sumnum, topplenum, i, j;
 
-	for(i = 0; i < 3; i++) {
-		for(j = 0; j < 3; j++) {
+	for (i = 0; i < LINECAP; i++)
+	{
+		for (j = 0; j < LINECAP; j++)
+		{
 			sumnum = grid1[i][j] + grid2[i][j];
 			grid1[i][j] = sumnum;
 		}
+	}
+	while (sig != 0)
+	{
+		sig = 1;
+		for (i = 0; i < LINECAP; i++)
+		{
+			for (j = 0; j < LINECAP; j++)
+			{
+				if (grid1[i][j] > NUMCAP)
+				{
+					topplenum = grid1[i][j];
+					sig = 2;
+					break;
+				}
+			}
+			if (sig == 2)
+				break;
+		}
+		if (sig == 2)
+		{
+			print grid1
+			topple grid with topplenum
+		}
+		else
+			sig = 0;
 	}
 }
