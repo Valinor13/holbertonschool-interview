@@ -4,9 +4,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-extern int NUMCAP = 3;
-extern int LINECAP = 3;
-
 void sandpiles_sum(int grid1[3][3], int grid2[3][3]);
 
 #endif
