@@ -1,8 +1,5 @@
 #include "sandpiles.h"
 
-int NUMCAP = 3;
-int LINECAP = 3;
-
 /**
  * print_pile - Print 3x3 grid
  * @grid: 3x3 grid
@@ -34,6 +31,7 @@ static void print_pile(int grid[3][3])
 void combine_piles(int one[3][3], int two[3][3])
 {
 	int sumnum, i, j;
+	int LINECAP = 3;
 
 	for (i = 0; i < LINECAP; i++)
 	{
@@ -55,6 +53,7 @@ void combine_piles(int one[3][3], int two[3][3])
 void grab_topplenum(int one[3][3], int *sig, int *tpn)
 {
 	int i, j;
+	int NUMCAP = 3, LINECAP = 3;
 
 	for (i = 0; i < LINECAP; i++)
 		{
