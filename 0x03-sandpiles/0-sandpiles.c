@@ -56,19 +56,19 @@ void grab_topplenum(int one[3][3], int *sig, int *tpn)
 	int NUMCAP = 3, LINECAP = 3;
 
 	for (i = 0; i < LINECAP; i++)
+	{
+		for (j = 0; j < LINECAP; j++)
 		{
-			for (j = 0; j < LINECAP; j++)
+			if (one[i][j] > NUMCAP)
 			{
-				if (one[i][j] > NUMCAP)
-				{
-					*tpn = one[i][j];
-					*sig = 2;
-					break;
-				}
-			}
-			if (*sig == 2)
+				*tpn = one[i][j];
+				*sig = 2;
 				break;
+			}
 		}
+		if (*sig == 2)
+			break;
+	}
 }
 
 /**
