@@ -30,7 +30,7 @@ static void print_pile(int grid[3][3])
  */
 void combine_piles(int one[3][3], int two[3][3])
 {
-	int LINECAP = 3, sumnum, i, j;
+	int sumnum, i, j;
 
 	for (i = 0; i < LINECAP; i++)
 	{
