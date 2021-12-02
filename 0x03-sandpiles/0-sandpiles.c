@@ -44,6 +44,31 @@ void combine_piles(int one[3][3], int two[3][3])
 }
 
 /**
+ * check_oil - checks if sands need toppled
+ * @one: sandpile
+ * @sig: signal pointer
+ * Return: returns void
+ */
+void check_oil(int one[3][3], int *sig)
+{
+	int i, j, LINECAP = 3, NUMCAP = 3;
+
+	for (i = 0; i < LINECAP; i++)
+	{
+		for (j = 0; j < LINECAP; j++)
+		{
+			if (one[i][j] > NUMCAP)
+			{
+				*sig = 2;
+				break;
+			}
+		}
+		if (*sig == 2)
+			break;
+	}
+}
+
+/**
  * topple_sands - topple sand cells equal to topple number
  * @sandpile: the grid of sand cells
  * @tpn: the topplenumber pointer
@@ -96,6 +121,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	while (sig != 0)
 	{
 		sig = 1;
+		check_oil(grid1, sigp);
 		if (sig == 2)
 		{
 			print_pile(grid1);
