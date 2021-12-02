@@ -92,6 +92,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 		if (sig == 2)
 		{
 			print_pile(grid1);
+			printf("%d\n", topplenum);
 			sig = 0;
 		}
 		else
