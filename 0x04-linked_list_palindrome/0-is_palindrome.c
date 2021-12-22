@@ -8,21 +8,18 @@
  */
 int palindrome_recursion(listint_t** left, listint_t* right)
 {
-	int isp = 0, isp1 = 0;
-
 	if (right == NULL)
-		return 1;
+		return (1);
  
-	isp = palindrome_recursion(left, right->next);
-	if (isp == 0)
-		return 0;
+	if (!(palindrome_recursion(left, right->next)))
+		return (0);
  
 	if (right->n == (*left)->n)
-		isp1 = 1;
+		return (1);
  
 	*left = (*left)->next;
  
-	return isp1;
+	return (1);
 }
 
 /**
@@ -32,10 +29,7 @@ int palindrome_recursion(listint_t** left, listint_t* right)
  */
 int is_palindrome(listint_t **head)
 {
-	int result = 1;
-
-	if (!(head) || !(*head->next))
+	if (!(head) || !(*head))
 		return (1);
-	result = palindrome_recursion(head, *head);
-	return (result);
+	return (palindrome_recursion(head, *head));
 }
