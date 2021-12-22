@@ -14,8 +14,8 @@ int palindrome_recursion(listint_t** left, listint_t* right)
 	if (!(palindrome_recursion(left, right->next)))
 		return (0);
  
-	if (right->n == (*left)->n)
-		return (1);
+	if (right->n != (*left)->n)
+		return (0);
  
 	*left = (*left)->next;
  
