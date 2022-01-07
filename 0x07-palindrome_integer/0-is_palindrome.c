@@ -12,7 +12,7 @@ int is_palindrome(unsigned long n)
     u = n;
     while(u != 0) {
         rem = u % 10;
-        rev *= 10 + rem;
+        rev = rev * 10 + rem;
         u /= 10;
     }
     if (rev == n) {
