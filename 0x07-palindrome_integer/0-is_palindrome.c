@@ -7,10 +7,11 @@
  */
 int is_palindrome(unsigned long n)
 {
-    unsigned long int n, u, rem, rev = 0;
+    unsigned long int u, rem, rev = 0;
 
+    u = n;
     while(u != 0) {
-        rem = n % 10;
+        rem = u % 10;
         rev *= 10 + rem;
         u /= 10;
     }
