@@ -1,0 +1,1 @@
+This is a challenge to build a single line of the game 2048, written in C.
