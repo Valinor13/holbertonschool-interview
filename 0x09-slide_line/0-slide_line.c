@@ -78,10 +78,7 @@ void combine_left(int *line, size_t size)
 					break;
 			}
 			if (line[i] == line[j])
-			{
 				line[i] += line[j];
-				line[j] = 0;
-			}
 			if (line[j])
 			{
 				tmp = line[j];
@@ -114,10 +111,7 @@ void combine_right(int *line, size_t size)
 					break;
 			}
 			if (line[i] == line[j])
-			{
 				line[i] += line[j];
-				line[j] = 0;
-			}
 			if (line[j])
 			{
 				tmp = line[j];
