@@ -13,12 +13,12 @@ void combine_left(int *line, size_t size)
 
 	for (i = 0; i < size - 1; i++)
 	{
-		if (line[i])
+		if (line[i] != 0)
 		{
 			left = line[i];
 			for (j = i + 1; j < size; j++)
 			{
-				if (line[j])
+				if (line[j] != 0)
 				{
 					mid = line[j];
 					rposi = j;
@@ -50,18 +50,15 @@ void combine_right(int *line, size_t size)
 	int mid, right;
 	size_t i, j, lposi;
 
-	for (i = size; i > 0; i--)
+	for (i = size - 1; i > 0; i--)
 	{
-		if (i >= 1)
-			i -= 1;
-		if (line[i])
+		if (line[i] != 0)
 		{
 			right = line[i];
 			for (j = i; j > 0; j--)
 			{
-				if (j >= 1)
-					j -= 1;
-				if (line[j])
+				j -= 1;
+				if (line[j] != 0)
 				{
 					mid = line[j];
 					lposi = j;
