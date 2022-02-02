@@ -13,7 +13,7 @@ void slide_right(int *line, size_t size)
 
 	for (i = size - 1; i > 0; i--)
 	{
-		lposi = right = mid = 0;
+		lposi = mid = 0;
 		if (line[i] == 0)
 		{
 			for (j = i; j > 0; j--)
@@ -49,7 +49,7 @@ void slide_left(int *line, size_t size)
 
 	for (i = 0; i < size - 1; i++)
 	{
-		rposi = left = mid = 0;
+		rposi = mid = 0;
 		if (line[i] == 0)
 		{
 			for (j = i + 1; j < size; j++)
