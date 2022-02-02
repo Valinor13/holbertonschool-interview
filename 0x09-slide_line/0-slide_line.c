@@ -11,12 +11,10 @@ void combine_left(int *line, size_t size)
 	int mid, left;
 	size_t i, j, rposi;
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i < size - 1; i++)
 	{
 		if (line[i])
 		{
-			if (i + 1 == size)
-				break;
 			left = line[i];
 			for (j = i + 1; j < size; j++)
 			{
