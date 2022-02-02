@@ -1,12 +1,12 @@
 #include "slide_line.h"
 
 /**
- * slide_left - merges the array left
+ * combine_left - merges the array left
  * @line: The array
  * @size: The size of the array
  * Return: Returns void
  */
-void slide_left(int *line, size_t size)
+void combine_left(int *line, size_t size)
 {
 	int mid, left;
 	size_t i, j, rposi;
@@ -16,6 +16,8 @@ void slide_left(int *line, size_t size)
 		if (line[i])
 		{
 			left = line[i];
+			if (j + 1 == size)
+				break;
 			for (j = i + 1; j < size; j++)
 			{
 				if (line[j])
@@ -40,12 +42,12 @@ void slide_left(int *line, size_t size)
 }
 
 /**
- * slide_right - merges the array right
+ * combine_right - merges the array right
  * @line: The array
  * @size: The size of the array
  * Return: Returns void
  */
-void slide_right(int *line, size_t size)
+void combine_right(int *line, size_t size)
 {
 	int mid, right;
 	size_t i, j, lposi;
@@ -93,10 +95,10 @@ int slide_line(int *line, size_t size, int direction)
 	switch (direction)
 	{
 	case SLIDE_LEFT:
-		slide_left(line, size);
+		combine_left(line, size);
 		return (1);
 	case SLIDE_RIGHT:
-		slide_right(line, size);
+		combine_right(line, size);
 		return (1);
 	default:
 		return (0);
