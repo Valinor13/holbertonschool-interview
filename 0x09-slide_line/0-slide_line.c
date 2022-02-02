@@ -6,56 +6,56 @@
  * @size: The size of the array
  * Return: Returns void
  */
-void slide_right(int *line, size_t size)
-{
-	size_t i, j;
+// void slide_right(int *line, size_t size)
+// {
+// 	size_t i, j;
 
-	for (i = size - 1; i > 0; i--)
-	{
-		if (!(line[i]))
-		{
-			for (j = i; j > 0; j--)
-			{
-				j -= 1;
-				if (line[j] != 0)
-					break;
-			}
-			if (line[j])
-			{
-				line[i] = line[j];
-				line[j] = 0;
-			}
-		}
-	}
-}
+// 	for (i = size - 1; i > 0; i--)
+// 	{
+// 		if (!(line[i]))
+// 		{
+// 			for (j = i; j > 0; j--)
+// 			{
+// 				j -= 1;
+// 				if (line[j] != 0)
+// 					break;
+// 			}
+// 			if (line[j])
+// 			{
+// 				line[i] = line[j];
+// 				line[j] = 0;
+// 			}
+// 		}
+// 	}
+// }
 
-/**
- * slide_left - slides the array left
- * @line: The array
- * @size: The size of the array
- * Return: Returns void
- */
-void slide_left(int *line, size_t size)
-{
-	size_t i, j;
+// /**
+//  * slide_left - slides the array left
+//  * @line: The array
+//  * @size: The size of the array
+//  * Return: Returns void
+//  */
+// void slide_left(int *line, size_t size)
+// {
+// 	size_t i, j;
 
-	for (i = 0; i < size - 1; i++)
-	{
-		if (!(line[i]))
-		{
-			for (j = i + 1; j < size; j++)
-			{
-				if (line[j])
-					break;
-			}
-			if (line[j])
-			{
-				line[i] = line[j];
-				line[j] = 0;
-			}
-		}
-	}
-}
+// 	for (i = 0; i < size - 1; i++)
+// 	{
+// 		if (!(line[i]))
+// 		{
+// 			for (j = i + 1; j < size; j++)
+// 			{
+// 				if (line[j])
+// 					break;
+// 			}
+// 			if (line[j])
+// 			{
+// 				line[i] = line[j];
+// 				line[j] = 0;
+// 			}
+// 		}
+// 	}
+// }
 
 /**
  * combine_left - merges the array left
@@ -144,11 +144,11 @@ int slide_line(int *line, size_t size, int direction)
 	{
 	case SLIDE_LEFT:
 		combine_left(line, size);
-		slide_left(line, size);
+		// slide_left(line, size);
 		return (1);
 	case SLIDE_RIGHT:
 		combine_right(line, size);
-		slide_right(line, size);
+		// slide_right(line, size);
 		return (1);
 	default:
 		return (0);
