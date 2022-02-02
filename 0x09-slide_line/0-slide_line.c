@@ -57,7 +57,7 @@ void combine_right(int *line, size_t size)
 			right = line[i];
 			for (j = i; j > 0; j--)
 			{
-				if (j - 1 >= 0)
+				if (j - 1 >= 1)
 					j -= 1;
 				if (line[j])
 				{
