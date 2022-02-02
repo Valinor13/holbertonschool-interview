@@ -50,8 +50,10 @@ void combine_right(int *line, size_t size)
 	int mid, right;
 	size_t i, j, lposi;
 
-	for (i = size - 1; i > 0; i--)
+	for (i = size; i > 0; i--)
 	{
+		if (i >= 1)
+			i -= 1;
 		if (line[i])
 		{
 			right = line[i];
