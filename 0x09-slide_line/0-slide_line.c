@@ -17,7 +17,7 @@ void slide_right(int *line, size_t size)
 			for (j = i; j > 0; j--)
 			{
 				j -= 1;
-				if (line[j] != 0)
+				if (line[j])
 					break;
 			}
 			if (line[j])
