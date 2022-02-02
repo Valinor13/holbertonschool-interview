@@ -88,15 +88,14 @@ void combine_left(int *line, size_t size)
 				}
 			}
 			if (line[i] == line[j])
-			{
 				line[i] += line[j];
-				line[j] = 0;
-			}
 			else
 			{
-				line[i + 1] = line[j];
-				line[j] = 0;
+				if (line[j])
+					line[i + 1] = line[j];
 			}
+			line[j] = 0;
+
 		}
 	}
 }
@@ -122,15 +121,13 @@ void combine_right(int *line, size_t size)
 					break;
 			}
 			if (line[i] == line[j])
-			{
 				line[i] += line[j];
-				line[j] = 0;
-			}
 			else
 			{
-				line[i - 1] = line[j];
-				line[j] = 0;
+				if (line[j])
+					line[i - 1] = line[j];
 			}
+				line[j] = 0;
 		}
 	}
 }
