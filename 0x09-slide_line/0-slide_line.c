@@ -15,9 +15,9 @@ void combine_left(int *line, size_t size)
 	{
 		if (line[i])
 		{
-			left = line[i];
-			if (j + 1 == size)
+			if (i + 1 == size)
 				break;
+			left = line[i];
 			for (j = i + 1; j < size; j++)
 			{
 				if (line[j])
