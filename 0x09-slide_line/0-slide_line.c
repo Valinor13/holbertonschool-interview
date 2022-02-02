@@ -50,7 +50,7 @@ void slide_right(int *line, size_t size)
 	int mid, right;
 	size_t i, j, lposi;
 
-	for (i = size - 1; i >= 0; i--)
+	for (i = size - 1; i > 0; i--)
 	{
 		if (line[i])
 		{
