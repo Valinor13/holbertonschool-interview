@@ -8,12 +8,12 @@
  */
 // void slide_right(int *line, size_t size)
 // {
-// 	int mid;
+// 	int line[j];
 // 	size_t i, j, lposi;
 
 // 	for (i = size - 1; i > 0; i--)
 // 	{
-// 		lposi = mid = 0;
+// 		lposi = line[j] = 0;
 // 		if (line[i] == 0)
 // 		{
 // 			for (j = i; j > 0; j--)
@@ -21,15 +21,15 @@
 // 				j -= 1;
 // 				if (line[j] != 0)
 // 				{
-// 					mid = line[j];
+// 					line[j] = line[j];
 // 					lposi = j;
 // 					break;
 // 				}
-// 				mid = 0;
+// 				line[j] = 0;
 // 			}
-// 			if (mid != 0)
+// 			if (line[j] != 0)
 // 			{
-// 				line[i] = mid;
+// 				line[i] = line[j];
 // 				line[lposi] = 0;
 // 			}
 // 		}
@@ -44,27 +44,21 @@
  */
 void slide_left(int *line, size_t size)
 {
-	int mid;
-	size_t i, j, rposi;
+	size_t i, j;
 
 	for (i = 0; i < size - 1; i++)
 	{
-		rposi = mid = 0;
-		if (line[i] == 0)
+		if (!(line[i]))
 		{
 			for (j = i + 1; j < size; j++)
 			{
-				if (line[j] != 0)
-				{
-					mid = line[j];
-					rposi = j;
+				if (line[j])
 					break;
-				}
 			}
-			if (mid != 0)
+			if (line[j])
 			{
-				line[i] = mid;
-				line[rposi] = 0;
+				line[i] = line[j];
+				line[j] = 0;
 			}
 		}
 	}
@@ -78,33 +72,30 @@ void slide_left(int *line, size_t size)
  */
 void combine_left(int *line, size_t size)
 {
-	int mid, left;
-	size_t i, j, rposi;
+	size_t i, j;
 
 	for (i = 0; i < size - 1; i++)
 	{
-		rposi = left = mid = 0;
-		if (line[i] != 0)
+		if (line[i])
 		{
-			left = line[i];
 			for (j = i + 1; j < size; j++)
 			{
 				if (line[j] != 0)
 				{
-					mid = line[j];
-					rposi = j;
+					line[j] = line[j];
+					j = j;
 					break;
 				}
 			}
-			if (left == mid)
+			if (line[i] == line[j])
 			{
-				line[i] = left + mid;
-				line[rposi] = 0;
+				line[i] += line[j];
+				line[j] = 0;
 			}
 			else
 			{
-				line[rposi] = 0;
-				line[i + 1] = mid;
+				line[i + 1] = line[j];
+				line[j] = 0;
 			}
 		}
 	}
@@ -118,34 +109,27 @@ void combine_left(int *line, size_t size)
  */
 void combine_right(int *line, size_t size)
 {
-	int mid, right;
-	size_t i, j, lposi;
+	size_t i, j;
 
 	for (i = size - 1; i > 0; i--)
 	{
-		lposi = right = mid = 0;
-		if (line[i] != 0)
+		if (line[i])
 		{
-			right = line[i];
 			for (j = i; j > 0; j--)
 			{
 				j -= 1;
-				if (line[j] != 0)
-				{
-					mid = line[j];
-					lposi = j;
+				if (line[j])
 					break;
-				}
 			}
-			if (right == mid)
+			if (line[i] == line[j])
 			{
-				line[i] = right + mid;
-				line[lposi] = 0;
+				line[i] += line[j];
+				line[j] = 0;
 			}
 			else
 			{
-				line[lposi] = 0;
-				line[i - 1] = mid;
+				line[i - 1] = line[j];
+				line[j] = 0;
 			}
 		}
 	}
