@@ -6,35 +6,28 @@
  * @size: The size of the array
  * Return: Returns void
  */
-// void slide_right(int *line, size_t size)
-// {
-// 	int line[j];
-// 	size_t i, j, lposi;
+void slide_right(int *line, size_t size)
+{
+	size_t i, j;
 
-// 	for (i = size - 1; i > 0; i--)
-// 	{
-// 		lposi = line[j] = 0;
-// 		if (line[i] == 0)
-// 		{
-// 			for (j = i; j > 0; j--)
-// 			{
-// 				j -= 1;
-// 				if (line[j] != 0)
-// 				{
-// 					line[j] = line[j];
-// 					lposi = j;
-// 					break;
-// 				}
-// 				line[j] = 0;
-// 			}
-// 			if (line[j] != 0)
-// 			{
-// 				line[i] = line[j];
-// 				line[lposi] = 0;
-// 			}
-// 		}
-// 	}
-// }
+	for (i = size - 1; i > 0; i--)
+	{
+		if (!(line[i]))
+		{
+			for (j = i; j > 0; j--)
+			{
+				j -= 1;
+				if (line[j] != 0)
+					break;
+			}
+			if (line[j])
+			{
+				line[i] = line[j];
+				line[j] = 0;
+			}
+		}
+	}
+}
 
 /**
  * slide_left - slides the array left
@@ -72,6 +65,7 @@ void slide_left(int *line, size_t size)
  */
 void combine_left(int *line, size_t size)
 {
+	int tmp;
 	size_t i, j;
 
 	for (i = 0; i < size - 1; i++)
@@ -80,19 +74,19 @@ void combine_left(int *line, size_t size)
 		{
 			for (j = i + 1; j < size; j++)
 			{
-				if (line[j] != 0)
-				{
-					line[j] = line[j];
-					j = j;
+				if (line[j])
 					break;
-				}
 			}
 			if (line[i] == line[j])
-				line[i] += line[j];
-			else
 			{
-				if (line[j])
-					line[i + 1] = line[j];
+				line[i] += line[j];
+				line[j] = 0;
+			}
+			if (line[j])
+			{
+				tmp = line[j];
+				line[j] = 0;
+				line[i + 1] = tmp;
 			}
 		}
 	}
@@ -106,6 +100,7 @@ void combine_left(int *line, size_t size)
  */
 void combine_right(int *line, size_t size)
 {
+	int tmp;
 	size_t i, j;
 
 	for (i = size - 1; i > 0; i--)
@@ -119,11 +114,15 @@ void combine_right(int *line, size_t size)
 					break;
 			}
 			if (line[i] == line[j])
-				line[i] += line[j];
-			else
 			{
-				if (line[j])
-					line[i - 1] = line[j];
+				line[i] += line[j];
+				line[j] = 0;
+			}
+			if (line[j])
+			{
+				tmp = line[j];
+				line[j] = 0;
+				line[i - 1] = tmp;
 			}
 		}
 	}
@@ -149,7 +148,7 @@ int slide_line(int *line, size_t size, int direction)
 		return (1);
 	case SLIDE_RIGHT:
 		combine_right(line, size);
-		// slide_right(line, size);
+		slide_right(line, size);
 		return (1);
 	default:
 		return (0);
