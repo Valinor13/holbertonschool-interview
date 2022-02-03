@@ -129,11 +129,11 @@ void combine_right(int *line, size_t size)
 		if (line[i])
 		{
 			right = line[i];
-			for (j = i - 1; j > -1; j--)
+			for (j = i - 1; j > 0; j--)
 			{
-				if (line[j])
+				if (line[j - 1])
 				{
-					mid = line[j];
+					mid = line[j - 1];
 					break;
 				}
 			}
