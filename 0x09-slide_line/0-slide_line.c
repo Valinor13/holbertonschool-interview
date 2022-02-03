@@ -82,6 +82,7 @@ void combine_left(int *line, size_t size)
 
 	for (i = 0; i < size - 1; i++)
 	{
+		tmp = left = mid = 0;
 		if (line[i])
 		{
 			left = line[i];
