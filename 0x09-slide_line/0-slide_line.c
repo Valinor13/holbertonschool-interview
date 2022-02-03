@@ -9,7 +9,7 @@
 void slide_right(int *line, size_t size)
 {
 	int mid;
-	size_t i, j, left;
+	size_t i, j, k;
 
 	for (i = size - 1; i > 0; i--)
 	{
@@ -18,18 +18,17 @@ void slide_right(int *line, size_t size)
 		{
 			for (j = i; j > 0; j--)
 			{
-				j -= 1;
-				if (line[j])
+				k = (j - 1);
+				if (line[k])
 				{
-					mid = line[j];
-					left = j;
+					mid = line[k];
 					break;
 				}
 			}
 			if (mid)
 			{
 				line[i] = mid;
-				line[left] = 0;
+				line[k] = 0;
 			}
 		}
 	}
