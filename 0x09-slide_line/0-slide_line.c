@@ -22,7 +22,7 @@ void slide_right(int *line, size_t size)
 				if (line[j])
 				{
 					mid = line[j];
-					j = left;
+					left = j;
 					break;
 				}
 			}
