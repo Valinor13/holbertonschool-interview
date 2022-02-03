@@ -124,7 +124,7 @@ void combine_right(int *line, size_t size)
 
 	for (i = size - 1; i > 0; i--)
 	{
-		printf("i:%u\n", i);
+		printf("i:%lu\n", i);
 		if (line[i])
 		{
 			printf("line[i]:%d\n", line[i]);
