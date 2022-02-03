@@ -138,14 +138,11 @@ void combine_right(int *line, size_t size)
 					break;
 				}
 			}
-			printf("right:%d mid:%d\n", right, mid);
 			if (right == mid)
 			{
-				printf("line[i]:%d line[k]:%d\n", line[i], line[k]);
 				right += mid;
 				line[i] = right;
 				line[k] = 0;
-				printf("line[i]:%d line[k]:%d\n", line[i], line[k]);
 			}
 			else if (line[k])
 			{
