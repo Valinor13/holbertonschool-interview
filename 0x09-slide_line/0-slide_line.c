@@ -6,7 +6,7 @@
  * @size: The size of the array
  * Return: Returns void
  */
-/*void slide_right(int *line, size_t size)
+void slide_right(int *line, size_t size)
 {
 	int mid;
 	size_t i, j, left;
@@ -34,7 +34,7 @@
 		}
 	}
 }
-*/
+
 /**
  * slide_left - slides the array left
  * @line: The array
@@ -124,8 +124,6 @@ void combine_right(int *line, size_t size)
 
 	for (i = size - 1; i > 0; i--)
 	{
-		printf("i:%lu\n", i);
-		printf("line[i]:%d\n", line[i]);
 		if (line[i])
 		{
 			right = line[i];
@@ -177,8 +175,7 @@ int slide_line(int *line, size_t size, int direction)
 		return (1);
 	case SLIDE_RIGHT:
 		combine_right(line, size);
-		/*		slide_right(line, size);
-		 */
+		slide_right(line, size);
 		return (1);
 	default:
 		return (0);
