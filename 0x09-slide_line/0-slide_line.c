@@ -124,9 +124,9 @@ void combine_right(int *line, size_t size)
 
 	for (i = size - 1; i > 0; i--)
 	{
-		printf("i:%lu\n", i);
+/*		printf("i:%lu\n", i);
 		printf("line[i]:%d\n", line[i]);
-		if (line[i])
+*/		if (line[i])
 		{
 			right = line[i];
 			for (j = i; j > 0; j--)
@@ -140,9 +140,11 @@ void combine_right(int *line, size_t size)
 			printf("right:%d mid:%d\n", right, mid);
 			if (right == mid)
 			{
+				printf("line[i]:%d line[j]:%d\n", line[i], line[j]);
 				right += mid;
 				line[i] = right;
 				line[j] = 0;
+				printf("line[i]:%d line[j]:%d\n", line[i], line[j]);
 			}
 			else if (line[j])
 			{
