@@ -137,6 +137,7 @@ void combine_right(int *line, size_t size)
 					break;
 				}
 			}
+			printf("right:%d mid:%d\n", right, mid);
 			if (right == mid)
 			{
 				right += mid;
