@@ -120,22 +120,21 @@ void combine_left(int *line, size_t size)
 void combine_right(int *line, size_t size)
 {
 	int right, mid, tmp;
-	size_t i, j, left, r;
+	size_t i, j;
 
 	for (i = size - 1; i > 0; i--)
 	{
-/*		printf("i:%lu\n", i);
-		printf("line[i]:%d\n", line[i]);
-*/		if (line[i])
+		/*		printf("i:%lu\n", i);
+				printf("line[i]:%d\n", line[i]);
+		*/
+		if (line[i])
 		{
 			right = line[i];
-			r = i;
 			for (j = i - 1; j > 0; j--)
 			{
 				if (line[j])
 				{
 					mid = line[j];
-					left = j;
 					break;
 				}
 			}
@@ -143,13 +142,16 @@ void combine_right(int *line, size_t size)
 			{
 				right += mid;
 				line[i] = right;
-				line[left] = 0;
+				line[j] = 0;
 			}
-			if (line[left])
+			else if (line[j])
 			{
-				tmp = line[left];
-				line[left] = 0;
-				line[r - 1] = tmp;
+				if (j != (i - 1))
+				{
+					tmp = line[j];
+					line[j] = 0;
+					line[i - 1] = tmp;
+				}
 			}
 		}
 	}
@@ -175,8 +177,9 @@ int slide_line(int *line, size_t size, int direction)
 		return (1);
 	case SLIDE_RIGHT:
 		combine_right(line, size);
-/*		slide_right(line, size);
-*/		return (1);
+		/*		slide_right(line, size);
+		 */
+		return (1);
 	default:
 		return (0);
 	}
