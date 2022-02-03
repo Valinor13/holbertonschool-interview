@@ -120,7 +120,7 @@ void combine_left(int *line, size_t size)
 void combine_right(int *line, size_t size)
 {
 	int right, mid, tmp;
-	size_t i, j, left. r;
+	size_t i, j, left, r;
 
 	for (i = size - 1; i > 0; i--)
 	{
