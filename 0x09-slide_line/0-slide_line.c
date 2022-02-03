@@ -43,7 +43,7 @@ void slide_right(int *line, size_t size)
 void slide_left(int *line, size_t size)
 {
 	int mid;
-	size_t i, j, right;
+	size_t i, j;
 
 	for (i = 0; i < size - 1; i++)
 	{
@@ -55,14 +55,13 @@ void slide_left(int *line, size_t size)
 				if (line[j])
 				{
 					mid = line[j];
-					right = j;
 					break;
 				}
 			}
 			if (mid)
 			{
 				line[i] = mid;
-				line[right] = 0;
+				line[j] = 0;
 			}
 		}
 	}
@@ -77,14 +76,13 @@ void slide_left(int *line, size_t size)
 void combine_left(int *line, size_t size)
 {
 	int tmp, left, mid;
-	size_t i, j, right, l;
+	size_t i, j, right;
 
 	for (i = 0; i < size - 1; i++)
 	{
 		if (line[i])
 		{
 			left = line[i];
-			l = i;
 			for (j = i + 1; j < size; j++)
 			{
 				if (line[j])
@@ -104,7 +102,7 @@ void combine_left(int *line, size_t size)
 			{
 				tmp = line[right];
 				line[right] = 0;
-				line[l + 1] = tmp;
+				line[i + 1] = tmp;
 			}
 		}
 	}
