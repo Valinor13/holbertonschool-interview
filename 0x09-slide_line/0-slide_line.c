@@ -8,22 +8,28 @@
  */
 void slide_right(int *line, size_t size)
 {
-	size_t i, j;
+	int mid;
+	size_t i, j, left;
 
 	for (i = size - 1; i > 0; i--)
 	{
+		mid = 0;
 		if (!(line[i]))
 		{
 			for (j = i; j > 0; j--)
 			{
 				j -= 1;
 				if (line[j])
+				{
+					mid = line[j];
+					j = left;
 					break;
+				}
 			}
-			if (line[j])
+			if (mid)
 			{
-				line[i] = line[j];
-				line[j] = 0;
+				line[i] = mid;
+				line[left] = 0;
 			}
 		}
 	}
@@ -37,21 +43,27 @@ void slide_right(int *line, size_t size)
  */
 void slide_left(int *line, size_t size)
 {
-	size_t i, j;
+	int mid;
+	size_t i, j, right;
 
 	for (i = 0; i < size - 1; i++)
 	{
+		mid = 0;
 		if (!(line[i]))
 		{
 			for (j = i + 1; j < size; j++)
 			{
 				if (line[j])
+				{
+					mid = line[j];
+					right = j;
 					break;
+				}
 			}
-			if (line[j])
+			if (mid)
 			{
-				line[i] = line[j];
-				line[j] = 0;
+				line[i] = mid;
+				line[right] = 0;
 			}
 		}
 	}
@@ -65,27 +77,33 @@ void slide_left(int *line, size_t size)
  */
 void combine_left(int *line, size_t size)
 {
-	int tmp;
-	size_t i, j;
+	int tmp, left, mid;
+	size_t i, j, right;
 
 	for (i = 0; i < size - 1; i++)
 	{
 		if (line[i])
 		{
+			left = line[i];
 			for (j = i + 1; j < size; j++)
 			{
 				if (line[j])
+				{
+					mid = line[j];
+					right = j;
 					break;
+				}
 			}
-			if (line[i] == line[j])
+			if (left == mid)
 			{
-				line[i] += line[j];
-				line[j] = 0;
+				left += mid;
+				line[i] = left;
+				line[right] = 0;
 			}
-			if (line[j])
+			if (line[right])
 			{
-				tmp = line[j];
-				line[j] = 0;
+				tmp = line[right];
+				line[right] = 0;
 				line[i + 1] = tmp;
 			}
 		}
@@ -100,28 +118,34 @@ void combine_left(int *line, size_t size)
  */
 void combine_right(int *line, size_t size)
 {
-	int tmp;
-	size_t i, j;
+	int right, mid, tmp;
+	size_t i, j, left;
 
 	for (i = size - 1; i > 0; i--)
 	{
 		if (line[i])
 		{
+			right = line[i];
 			for (j = i; j > 0; j--)
 			{
 				j -= 1;
 				if (line[j])
+				{
+					mid = line[j];
+					left = j;
 					break;
+				}
 			}
-			if (line[i] == line[j])
+			if (right == mid)
 			{
-				line[i] += line[j];
-				line[j] = 0;
+				right += mid;
+				line[i] = right;
+				line[left] = 0;
 			}
-			if (line[j])
+			if (line[left])
 			{
-				tmp = line[j];
-				line[j] = 0;
+				tmp = line[left];
+				line[left] = 0;
 				line[i - 1] = tmp;
 			}
 		}
