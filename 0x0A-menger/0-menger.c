@@ -30,7 +30,7 @@ void printLevel(int level)
 		{
 			printTop(i);
 		}
-		putchar("\n");
+		putchar('\n');
 		printLevel(level - 1);
 	}
 }
