@@ -34,10 +34,11 @@ void printOut()
  * printLevelOne - Prints the level 1 pattern n times
  * Return: returns void
  */
-void printLevelOne(int cubed)
+void printLevelOne(int level)
 {
-	int i;
+	int i, cubed;
 
+	cubed = pow(3, level - 1);
 	for (i = 0; i < cubed; i++)
 		printOut();
 	putchar('\n');
@@ -54,11 +55,12 @@ void printLevelOne(int cubed)
  * @cubed: level print times
  * Return: returns void
  */
-void printLevelTwo(int cubed)
+void printLevelTwo(int level)
 {
-	int i;
+	int i, cubed;
 
-	printLevelOne(cubed);
+	cubed = pow(3, level - 2);
+	printLevelOne(level);
 	for (i = 0; i < cubed; i++)
 	{
 		printOut();
@@ -92,17 +94,16 @@ void menger(int level)
 {
 	int cubed;
 
-	cubed = pow(3, level - 1);
 	switch (level)
 	{
 	case 0:
 		puts("#");
 		break;
 	case 1:
-		printLevelOne(cubed);
+		printLevelOne(level);
 		break;
 	case 2:
-		printLevelTwo(cubed);
+		printLevelTwo(level);
 		break;
 	}
 }
