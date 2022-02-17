@@ -7,7 +7,7 @@
  * @col: the col position
  * Return: returns void
  */
-void printCol(size, row, col)
+void printCol(int size, int row, int col)
 {
 	int div, printId;
 
@@ -33,7 +33,7 @@ void printCol(size, row, col)
  * @row: the row position
  * Return: returns void
  */
-void printRow(size, row)
+void printRow(int size, int row)
 {
 	if (row >= 0)
 	{
