@@ -26,13 +26,18 @@ void printOut()
  */
 void printLevel(int level)
 {
+	int i;
+
 	if (level > 0)
 	{
-		printOut();
+		for (i = 0; i < level; i++)
+			printOut();
 		putchar('\n');
-		printIn();
+		for (i = 0; i < level; i++)
+			printIn();
 		putchar('\n');
-		printOut();
+		for (i = 0; i < level; i++)
+			printOut();
 		putchar('\n');
 		printLevel(level - 1);
 	}
