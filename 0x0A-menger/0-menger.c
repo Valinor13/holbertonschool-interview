@@ -37,7 +37,7 @@ void printRow(int size, int row)
 {
 	if (row >= 0)
 	{
-		printCol(size, row, size);
+		printCol(size, row, size - 1);
 		putchar('\n');
 		printRow(size, row - 1);
 	}
