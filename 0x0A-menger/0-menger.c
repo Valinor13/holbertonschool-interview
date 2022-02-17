@@ -1,4 +1,15 @@
 #include "menger.h"
+
+/**
+ * printSpace - prints the space layer of the current level
+ *
+ * Return: returns void
+ */
+void printSpace()
+{
+	printf("  ");
+}
+
 /**
  * printIn - prints the middle layer of the current level
  *
@@ -20,27 +31,56 @@ void printOut()
 }
 
 /**
- * printLevel - recursive function to print each level of carpet
- * @level: the number of levels to print
+ * printLevelTwo - Prints the level 2 pattern
+ * @cubed: level print times
  * Return: returns void
  */
-void printLevel(int level)
+void printLevelTwo(int cubed)
 {
-	int i, cubed;
+	int i;
 
-	if (level > 0)
+	printLevelOne(cubed);
+	for (i = 0; i < cubed; i++)
 	{
-		cubed = pow(3, level - 1);
-		for (i = 0; i < cubed; i++)
-			printOut();
-		putchar('\n');
-		for (i = 0; i < cubed; i++)
-			printIn();
-		putchar('\n');
-		for (i = 0; i < cubed; i++)
-			printOut();
-		putchar('\n');
+		printOut();
+		printSpace();
+		printOut();
 	}
+	putchar('\n');
+	for (i = 0; i < cubed; i++)
+	{
+		printIn();
+		printSpace();
+		printIn();
+	}
+	putchar('\n');
+	for (i = 0; i < cubed; i++)
+	{
+		printOut();
+		printSpace();
+		printOut();
+	}
+	putchar('\n');
+	printLevelOne(cubed);
+}
+
+/**
+ * printLevelOne - Prints the level 1 pattern n times
+ * Return: returns void
+ */
+void printLevelOne(int cubed)
+{
+	int i;
+
+	for (i = 0; i < cubed; i++)
+		printOut();
+	putchar('\n');
+	for (i = 0; i < cubed; i++)
+		printIn();
+	putchar('\n');
+	for (i = 0; i < cubed; i++)
+		printOut();
+	putchar('\n');
 }
 
 /**
@@ -50,10 +90,19 @@ void printLevel(int level)
  */
 void menger(int level)
 {
-	if (level == 0)
-		puts("#");
-	if (level > 0)
+	int cubed;
+
+	cubed = pow(3, level - 1);
+	switch (level)
 	{
-		printLevel(level);
+	case 0:
+		puts("#");
+		break;
+	case 1:
+		printLevelOne(cubed);
+		break;
+	case 2:
+		printLevelTwo(cubed);
+		break;
 	}
 }
