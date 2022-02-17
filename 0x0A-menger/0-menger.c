@@ -32,6 +32,7 @@ void printOut()
 
 /**
  * printLevelOne - Prints the level 1 pattern n times
+ * @level: level print times
  * Return: returns void
  */
 void printLevelOne(int level)
@@ -52,7 +53,7 @@ void printLevelOne(int level)
 
 /**
  * printLevelTwo - Prints the level 2 pattern
- * @cubed: level print times
+ * @level: level print times
  * Return: returns void
  */
 void printLevelTwo(int level)
@@ -86,6 +87,49 @@ void printLevelTwo(int level)
 }
 
 /**
+ * printLevelThree - Prints the level 3 pattern
+ * @level: level print times
+ * Return: returns void
+ */
+void printLevelThree(int level)
+{
+	int i, j, cubed;
+
+	cubed = pow(3, level - 3);
+	printLevelTwo(level);
+	for (i = 0; i < cubed; i++)
+	{
+		for (j = 0; j < 3; j++)
+			printOut();
+		for (j = 0; j < 3; j++)
+			printSpace();
+		for (j = 0; j < 3; j++)
+			printOut();
+	}
+	putchar('\n');
+	for (i = 0; i < cubed; i++)
+	{
+		for (j = 0; j < 3; j++)
+			printIn();
+		for (j = 0; j < 3; j++)
+			printSpace();
+		for (j = 0; j < 3; j++)
+			printIn();
+	}
+	putchar('\n');
+	for (i = 0; i < cubed; i++)
+	{
+		for (j = 0; j < 3; j++)
+			printOut();
+		for (j = 0; j < 3; j++)
+			printSpace();
+		for (j = 0; j < 3; j++)
+			printOut();
+	}
+	putchar('\n');
+	printLevelTwo(level);
+}
+/**
  * menger - separates non operable levels
  * @level: the input level of carpet to print
  * Return: returns void
@@ -102,6 +146,9 @@ void menger(int level)
 		break;
 	case 2:
 		printLevelTwo(level);
+		break;
+	case 3:
+		printLevelThree(level);
 		break;
 	}
 }
