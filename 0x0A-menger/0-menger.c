@@ -26,8 +26,6 @@ void printOut()
  */
 void printLevel(int level)
 {
-	int i;
-
 	if (level > 0)
 	{
 		printOut();
