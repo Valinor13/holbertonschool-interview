@@ -38,6 +38,7 @@ void printRow(int size, int row)
 	if (row >= 0)
 	{
 		printCol(size, row, size);
+		putchar('\n');
 		printRow(size, row - 1);
 	}
 }
@@ -51,7 +52,11 @@ void menger(int level)
 {
 	int size, row;
 
-	size = row = pow(3, level);
-
-	printRow(size, row);
+	if (level = 0)
+		puts("#");
+	if (level > 0)
+	{
+		size = row = pow(3, level);
+		printRow(size, row);
+	}
 }
