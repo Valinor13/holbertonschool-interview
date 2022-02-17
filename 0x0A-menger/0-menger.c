@@ -26,17 +26,18 @@ void printOut()
  */
 void printLevel(int level)
 {
-	int i;
+	int i, cubed;
 
 	if (level > 0)
 	{
-		for (i = 0; i < level; i++)
+		cubed = (3, level - 1);
+		for (i = 0; i < cubed; i++)
 			printOut();
 		putchar('\n');
-		for (i = 0; i < level; i++)
+		for (i = 0; i < cubed; i++)
 			printIn();
 		putchar('\n');
-		for (i = 0; i < level; i++)
+		for (i = 0; i < cubed; i++)
 			printOut();
 		putchar('\n');
 	}
