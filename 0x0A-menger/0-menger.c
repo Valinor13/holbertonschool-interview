@@ -39,7 +39,6 @@ void printLevel(int level)
 		for (i = 0; i < level; i++)
 			printOut();
 		putchar('\n');
-		printLevel(level - 1);
 	}
 }
 
