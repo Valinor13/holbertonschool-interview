@@ -31,6 +31,25 @@ void printOut()
 }
 
 /**
+ * printLevelOne - Prints the level 1 pattern n times
+ * Return: returns void
+ */
+void printLevelOne(int cubed)
+{
+	int i;
+
+	for (i = 0; i < cubed; i++)
+		printOut();
+	putchar('\n');
+	for (i = 0; i < cubed; i++)
+		printIn();
+	putchar('\n');
+	for (i = 0; i < cubed; i++)
+		printOut();
+	putchar('\n');
+}
+
+/**
  * printLevelTwo - Prints the level 2 pattern
  * @cubed: level print times
  * Return: returns void
@@ -62,25 +81,6 @@ void printLevelTwo(int cubed)
 	}
 	putchar('\n');
 	printLevelOne(cubed);
-}
-
-/**
- * printLevelOne - Prints the level 1 pattern n times
- * Return: returns void
- */
-void printLevelOne(int cubed)
-{
-	int i;
-
-	for (i = 0; i < cubed; i++)
-		printOut();
-	putchar('\n');
-	for (i = 0; i < cubed; i++)
-		printIn();
-	putchar('\n');
-	for (i = 0; i < cubed; i++)
-		printOut();
-	putchar('\n');
 }
 
 /**
