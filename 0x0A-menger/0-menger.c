@@ -1,18 +1,22 @@
 #include "menger.h"
-
 /**
- * printTop - prints the top layer of the current level
- * @layer: current layer of level
+ * printIn - prints the middle layer of the current level
+ *
  * Return: returns void
  */
-void printTop(int layer)
+void printIn()
 {
-	int i, cubed;
+	printf("# #");
+}
 
-	cubed = pow(3, layer);
-
-	for (i = 0; i < cubed; i++)
-		printf("###");
+/**
+ * printOut - prints the top/bottom layer of the current level
+ *
+ * Return: returns void
+ */
+void printOut()
+{
+	printf("###");
 }
 
 /**
@@ -26,10 +30,11 @@ void printLevel(int level)
 
 	if (level > 0)
 	{
-		for (i = 0; i < level; i++)
-		{
-			printTop(i);
-		}
+		printOut();
+		putchar('\n');
+		printIn();
+		putchar('\n');
+		printOut();
 		putchar('\n');
 		printLevel(level - 1);
 	}
