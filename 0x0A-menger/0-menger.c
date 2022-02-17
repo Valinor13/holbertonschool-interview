@@ -92,8 +92,6 @@ void printLevelTwo(int level)
  */
 void menger(int level)
 {
-	int cubed;
-
 	switch (level)
 	{
 	case 0:
