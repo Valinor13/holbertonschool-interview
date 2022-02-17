@@ -56,7 +56,7 @@ void menger(int level)
 		puts("#");
 	if (level > 0)
 	{
-		size = row = pow(3, level);
-		printRow(size, row - 1);
+		size = pow(3, level);
+		printRow(size, size - 1);
 	}
 }
