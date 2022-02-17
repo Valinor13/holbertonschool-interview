@@ -52,7 +52,7 @@ void menger(int level)
 {
 	int size, row;
 
-	if (level = 0)
+	if (level == 0)
 		puts("#");
 	if (level > 0)
 	{
