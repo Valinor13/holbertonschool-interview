@@ -30,7 +30,7 @@ void printLevel(int level)
 
 	if (level > 0)
 	{
-		cubed = (3, level - 1);
+		cubed = pow(3, level - 1);
 		for (i = 0; i < cubed; i++)
 			printOut();
 		putchar('\n');
