@@ -21,5 +21,8 @@ void menger(int level)
 	case 3:
 		printLevelThree(level);
 		break;
+	case 4:
+		printLevelFour(level);
+		break;
 	}
 }

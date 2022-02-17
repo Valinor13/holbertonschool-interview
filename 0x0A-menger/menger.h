@@ -9,6 +9,7 @@ void menger(int level);
 void printLevelOne(int level);
 void printLevelTwo(int level);
 void printLevelThree(int level);
+void printLevelFour(int level);
 void printSpace();
 void printIn();
 void printOut();
