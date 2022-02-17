@@ -50,7 +50,7 @@ void printRow(int size, int row)
  */
 void menger(int level)
 {
-	int size, row;
+	int size;
 
 	if (level == 0)
 		puts("#");
