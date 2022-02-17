@@ -30,7 +30,7 @@ void printLevel(int level)
 		{
 			printTop(i);
 		}
-		putchar('\n');
+		putchar("\n");
 		printLevel(level - 1);
 	}
 }
@@ -43,7 +43,7 @@ void printLevel(int level)
 void menger(int level)
 {
 	if (level == 0)
-		puts('#');
+		puts("#");
 	if (level > 0)
 	{
 		printLevel(level);
