@@ -7,7 +7,7 @@
  */
 void printSpace()
 {
-	printf("  ");
+	printf("   ");
 }
 
 /**
@@ -82,7 +82,7 @@ void printLevelTwo(int level)
 		printOut();
 	}
 	putchar('\n');
-	printLevelOne(cubed);
+	printLevelOne(level);
 }
 
 /**
