@@ -11,7 +11,7 @@ void printCol(int size, int row, int col)
 {
 	int div, printId;
 
-	if (col >= 0)
+	if (col > 0)
 	{
 		printId = 1;
 		for (div = 1; div < size; div *= 3)
@@ -35,7 +35,7 @@ void printCol(int size, int row, int col)
  */
 void printRow(int size, int row)
 {
-	if (row >= 0)
+	if (row > 0)
 	{
 		printCol(size, row, size);
 		putchar('\n');
