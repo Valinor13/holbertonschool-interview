@@ -13,16 +13,13 @@ void printCol(int size, int row, int col)
 
 	if (col >= 0)
 	{
-		printId = 1;
+		printId = 35;
 		for (div = 1; div < size; div *= 3)
 		{
 			if (((row / div) % 3 == 1) && ((col / div) % 3 == 1))
-				printId = 0;
+				printId = 32;
 		}
-		if (printId)
-			putchar('#');
-		else
-			putchar(' ');
+		putchar(printId);
 		printCol(size, row, col - 1);
 	}
 }
