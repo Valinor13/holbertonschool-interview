@@ -1,0 +1,1 @@
+This is a logic problem designed to prepare me for interviews. The goal is to count rainwater collected in python programming.
