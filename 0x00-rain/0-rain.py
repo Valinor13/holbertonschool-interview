@@ -9,7 +9,7 @@ def rain(walls):
         Return - returns the amount of rainwater, 0 if list doesn't exist
     """
 
-    if not walls or len(walls) == 0:
+    if not walls:
         return 0
 
     raincount = 0
