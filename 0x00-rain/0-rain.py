@@ -9,20 +9,14 @@ def rain(walls):
         Return - returns the amount of rainwater, 0 if list doesn't exist
     """
 
-    if not walls:
+    if not walls or len(walls) < 3:
         return 0
 
-    raincount = 0
+    rainwater = 0
 
     for i in range(0, len(walls)):
-        if walls[i] != 0:
-            for j in range(i + 1, len(walls)):
-                if walls[j] != 0:
-                    if walls[i] <= walls[j]:
-                        height = walls[i]
-                    else:
-                        height = walls[j]
-                    raincount += ((j - i) - 1) * height
-                    break
+        pre = max(walls[:i + 1])
+        post = max(walls[i:])
+        rainwater += min(pre, post) - walls[i]
 
-    return raincount
+    return rainwater
