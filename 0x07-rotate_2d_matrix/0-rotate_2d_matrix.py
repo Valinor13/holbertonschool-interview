@@ -13,5 +13,6 @@ def rotate_2d_matrix(matrix):
     """
     # Transpose matrix
     matrix[:] = [list(i) for i in zip(*matrix)]
-    # Reverse rows
-    matrix[:] = matrix[::-1]
+    print(matrix)
+    # Reverse rows using list comprehension
+    matrix[:] = [list(reversed(i)) for i in matrix]
