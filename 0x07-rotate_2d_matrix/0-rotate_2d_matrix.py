@@ -11,7 +11,9 @@ def rotate_2d_matrix(matrix):
     Returns:
       none  # Edit the matrix in place
     """
-    # Transpose matrix
-    matrix[:] = [list(i) for i in zip(*matrix)]
-    # Reverse rows using list comprehension
-    matrix[:] = [list(reversed(i)) for i in matrix]
+    # # Transpose matrix
+    # matrix[:] = [list(i) for i in zip(*matrix)]
+    # # Reverse rows using list comprehension
+    # matrix[:] = [list(reversed(i)) for i in matrix]
+    # one line solution winner winner chicken dinner
+    matrix[:] = [list(reversed(i)) for i in zip(*matrix)]
