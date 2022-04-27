@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" Making Change module"""
 
 # makeChange - a function that returns the minimum number of coins needed to
 # make change for a given total. No limit to the number of each coin used.
