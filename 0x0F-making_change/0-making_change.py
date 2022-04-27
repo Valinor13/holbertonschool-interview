@@ -9,6 +9,8 @@
 # return: the minimum number of coins needed to make change for the given total
 #         or -1 if no solution exists
 def makeChange(coins, total):
+    if (total < 1):
+        return 0
     # sort the coins in descending order
     coins.sort(reverse=True)
     # initialize the dp array
@@ -18,7 +20,8 @@ def makeChange(coins, total):
         dp[i] = -1
     # set the dp array to 0 for all values in the coins list
     for coin in coins:
-        dp[coin] = 0
+        if (coin < total):
+            dp[coin] = 0
     # set the dp array to 1 for all values in the coins list
     for coin in coins:
         for i in range(coin, total + 1):
@@ -27,4 +30,4 @@ def makeChange(coins, total):
                     dp[i] = dp[i - coin] + 1
                 else:
                     dp[i] = min(dp[i], dp[i - coin] + 1)
-    return dp[total]
+    return dp[total] if dp[total] == -1 else dp[total] + 1
