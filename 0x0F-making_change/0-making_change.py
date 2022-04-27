@@ -15,13 +15,10 @@ def makeChange(coins, total):
     # sort the coins in descending order
     coins.sort(reverse=True)
     # initialize the dp array
-    dp = [0] * (total + 1)
-    # set the dp array to all -1
-    for i in range(total + 1):
-        dp[i] = -1
-    # set the dp array to 0 for all values in the coins list
+    dp = [-1] * (total + 1)
+    # set the dp array to 0 for all values in the coins
     for coin in coins:
-        if (coin < total):
+        if (coin <= total):
             dp[coin] = 0
     # set the dp array to 1 for all values in the coins list
     for coin in coins:
