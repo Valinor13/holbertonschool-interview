@@ -1,0 +1,1 @@
+This is the Making Change directory located in the Holberton Interview repository. Making Change is a common interview question asking for an algorithm to use the fewest number of coins to return correct change.
