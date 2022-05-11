@@ -11,7 +11,6 @@ def island_perimeter(grid):
         the matrix borders are all water
         there will be no islands with water inside (lakes)
     """
-    # island perimeter using list comphrehension and no nested for loops
     perimeter = 0
     for row in range(len(grid)):
         for col in range(len(grid[0])):
