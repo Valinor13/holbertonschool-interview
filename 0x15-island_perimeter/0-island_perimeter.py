@@ -12,9 +12,13 @@ def island_perimeter(grid):
         there will be no islands with water inside (lakes)
     """
     perimeter = 0
+    # look at each row
     for row in range(len(grid)):
+        # look at each element in the row
         for col in range(len(grid[0])):
+            # if the element is land
             if grid[row][col] == 1:
+                # check the neighbors for land or water in each direction
                 if row == 0 or grid[row - 1][col] == 0:
                     perimeter += 1
                 if row == len(grid) - 1 or grid[row + 1][col] == 0:
