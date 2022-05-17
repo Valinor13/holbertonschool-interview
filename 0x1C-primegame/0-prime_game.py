@@ -5,3 +5,12 @@
     The player that cannot make a move loses the game.
 """
 
+def isWinner(x, nums):
+  """
+    isWinner - 
+      Deterimne winner based on turns
+      n and x will not be larger than 10000
+    @x: number of rounds
+    @nums: array of numbers n
+    Return: Name of player who wins, or None if no one wins
+  """
